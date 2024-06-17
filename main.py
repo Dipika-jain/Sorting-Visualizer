@@ -49,18 +49,18 @@ class window:
             command=lambda x:self.slide_function())
         self.arraysize.grid(row=2,column=1,columnspan=3)
         # ________________________________CANVAS_________________________
-        self.canvas=Canvas(self.root, width=800-5, height=400,highlightbackground="dodgerblue",highlightthickness=2,
-        bg='black')
+        self.canvas=Canvas(self.root, width=800-5, height=400,highlightbackground="black",highlightthickness=2,
+        bg='white')
         self.canvas.grid(row=4, padx=5, pady=10, columnspan=6)
 
         self.speed=0.2 #sorting speed
         self.N=10
-        self.colours=['dodgerblue' for i in range(self.N)]
+        self.colours=['black' for i in range(self.N)]
         self.shuffle() 
 
         # ________________ Color arrays _________________
         self.__sorted_array = ['lime' for _ in range(self.N)]
-        self.__default_colours = ['dodgerblue' for i in range(self.N)]
+        self.__default_colours = ['black' for i in range(self.N)]
 
     def display(self,N: int,a: list,rong: list)-> None:
         '''
@@ -86,7 +86,7 @@ class window:
         self.N=int(self.arraysize.get())
         self.data=linspace(5,400,self.N,dtype=uint16)
         self.speed=5/self.arraysize.get()
-        self.colours=['dodgerblue' for _ in range(self.N)]
+        self.colours=['black' for _ in range(self.N)]
         self.shuffle()
             
     def shuffle(self):
@@ -134,13 +134,13 @@ class window:
         if self.sorts['bubble'] is True:
             for i in range(self.N-1):
                 for j in range(self.N-1-i):
-                        self.display(self.N,self.data,['purple' if a==j or a==j+1 else 'green' if a>self.N-1-i else 'dodgerblue' for a in range(self.N)])
+                        self.display(self.N,self.data,['purple' if a==j or a==j+1 else 'green' if a>self.N-1-i else 'black' for a in range(self.N)])
                         time.sleep(self.speed)
                         if self.data[j]>self.data[j+1]:
-                            self.display(self.N,self.data,['red' if a==j or a==j+1 else 'green' if a>self.N-1-i else 'dodgerblue' for a in range(self.N)])
+                            self.display(self.N,self.data,['red' if a==j or a==j+1 else 'green' if a>self.N-1-i else 'black' for a in range(self.N)])
                             time.sleep(self.speed)
                             self.data[j],self.data[j+1]=self.data[j+1],self.data[j]
-                            self.display(self.N,self.data,['lime' if a==j or a==j+1 else 'green' if a>self.N-1-i else 'dodgerblue' for a in range(self.N)])
+                            self.display(self.N,self.data,['lime' if a==j or a==j+1 else 'green' if a>self.N-1-i else 'black' for a in range(self.N)])
                             time.sleep(self.speed)
             self.display(self.N,self.data,self.__sorted_array)
 
@@ -148,11 +148,11 @@ class window:
             for j in range(1,len(self.data)):
                 key=self.data[j]
                 i=j-1
-                self.display(self.N,self.data,['purple' if a==i or a==i+1 else 'green' if a<=j else'dodgerblue' for a in range(self.N)])
+                self.display(self.N,self.data,['purple' if a==i or a==i+1 else 'green' if a<=j else'black' for a in range(self.N)])
                 time.sleep(self.speed)
                 while i>=0 and self.data[i]>key:
                         self.data[i+1]=self.data[i]
-                        self.display(self.N,self.data,['yellow' if a==i else 'green' if a<=j else'dodgerblue' for a in range(self.N)])
+                        self.display(self.N,self.data,['yellow' if a==i else 'green' if a<=j else'black' for a in range(self.N)])
                         time.sleep(self.speed)
                         i-=1
                 self.data[i+1]=key
@@ -163,15 +163,15 @@ class window:
                 min_index=i
                 # loop to find the minimum element and its index
                 for j in range(i+1,len(self.data)):
-                        self.display(self.N,self.data,['yellow' if a==min_index or a==i else 'green' if a<=i else 'dodgerblue' for a in range(self.N)])
+                        self.display(self.N,self.data,['yellow' if a==min_index or a==i else 'green' if a<=i else 'black' for a in range(self.N)])
                         time.sleep(self.speed)
                         if self.data[min_index]>self.data[j]:
-                            self.display(self.N,self.data,['red' if a==min_index or a==j else 'green' if a<=i else 'dodgerblue' for a in range(self.N)])
+                            self.display(self.N,self.data,['red' if a==min_index or a==j else 'green' if a<=i else 'black' for a in range(self.N)])
                             time.sleep(self.speed)
                             min_index=j
                 if min_index!=i:
                         self.data[i], self.data[min_index]=self.data[min_index],self.data[i]
-                        self.display(self.N,self.data,['lime' if a==min_index or a==i else 'green' if a<=i else 'dodgerblue' for a in range(self.N)])
+                        self.display(self.N,self.data,['lime' if a==min_index or a==i else 'green' if a<=i else 'black' for a in range(self.N)])
                         time.sleep(self.speed)
             self.display(self.N,self.data,self.__sorted_array)
             
@@ -206,14 +206,14 @@ class window:
                 return 
             
             while front<=mid and rj<=last:
-                self.display(self.N,self.data,['yellow' if x==front or x==rj else 'dodgerblue' for x in range(self.N)])
+                self.display(self.N,self.data,['yellow' if x==front or x==rj else 'black' for x in range(self.N)])
                 time.sleep(self.speed)
                 if a[front]<=a[rj]:
-                        self.display(self.N,self.data,['lime' if x==front or x==rj else 'dodgerblue' for x in range(self.N)])
+                        self.display(self.N,self.data,['lime' if x==front or x==rj else 'black' for x in range(self.N)])
                         time.sleep(self.speed)
                         front+=1
                 else:
-                        self.display(self.N,self.data,['red' if x==front or x==rj else 'dodgerblue' for x in range(self.N)])
+                        self.display(self.N,self.data,['red' if x==front or x==rj else 'black' for x in range(self.N)])
                         time.sleep(self.speed)
                         temp=a[rj]
                         i=rj
@@ -221,7 +221,7 @@ class window:
                             a[i]=a[i-1]
                             i-=1
                         a[front]=temp
-                        self.display(self.N,self.data,['lime' if x==front or x==rj else 'dodgerblue' for x in range(self.N)])
+                        self.display(self.N,self.data,['lime' if x==front or x==rj else 'black' for x in range(self.N)])
                         time.sleep(self.speed)
 
                         front+=1
@@ -247,15 +247,15 @@ class window:
         while i<j:
             while  i<len(a) and a[i]<= pivot:
                 i+=1
-                self.display(self.N,self.data,['purple' if x==piv_index else 'yellow' if x==i else "dodgerblue" for x in range(self.N)])
+                self.display(self.N,self.data,['purple' if x==piv_index else 'yellow' if x==i else "black" for x in range(self.N)])
                 time.sleep(self.speed)
             while a[j]>pivot:
                 j-=1
             if i<j:
-                self.display(self.N,self.data,['red' if x==i or x==j else "dodgerblue" for x in range(self.N)])
+                self.display(self.N,self.data,['red' if x==i or x==j else "black" for x in range(self.N)])
                 time.sleep(self.speed)
                 a[i],a[j]=a[j],a[i]
-                self.display(self.N,self.data,['lime' if x==i or x==j else "dodgerblue" for x in range(self.N)])
+                self.display(self.N,self.data,['lime' if x==i or x==j else "black" for x in range(self.N)])
                 time.sleep(self.speed)
         a[j],a[l]=a[l],a[j]
         return j
