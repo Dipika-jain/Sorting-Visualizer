@@ -26,3 +26,6 @@ Multiple Sorting Algorithms: Visualize the following sorting algorithms:
 
 ### Backend
 Python: The main programming language used for implementing the sorting algorithms and handling the application logic.
+
+![image](https://github.com/Dipika-jain/Sorting-Visualizer/assets/93861690/1631f17f-f814-4cd9-93c8-6e4d96bebbf6)
+
